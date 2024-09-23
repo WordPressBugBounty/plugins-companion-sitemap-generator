@@ -1,0 +1,1 @@
+# plugins-companion-sitemap-generator
