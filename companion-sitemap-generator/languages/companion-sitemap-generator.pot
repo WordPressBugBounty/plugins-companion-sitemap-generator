@@ -1,0 +1,205 @@
+# Copyright (C) 2016 Companion Sitemap Generator
+# This file is distributed under the same license as the Companion Sitemap Generator package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Companion Sitemap Generator 1.9.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/companion-sitemap-"
+"generator\n"
+"POT-Creation-Date: 2016-05-25 19:43:40+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: companion_sitemap.php:128
+msgid "Sitemap created / updated"
+msgstr ""
+
+#: companion_sitemap.php:128
+msgid "Check it out"
+msgstr ""
+
+#: companion_sitemap.php:133
+msgid "Your sitemap file is not writable"
+msgstr ""
+
+#: companion_sitemap.php:139
+msgid "We could not locate a sitemap.xml file at"
+msgstr ""
+
+#: companion_sitemap.php:150 companion_sitemap.php:185
+msgid "You are not allowed to access this page"
+msgstr ""
+
+#: companion_sitemap.php:156 companion_sitemap.php:284
+msgid "Sitemap Generator"
+msgstr ""
+
+#: companion_sitemap.php:159 companion_sitemap.php:194
+msgid "Dashboard"
+msgstr ""
+
+#: companion_sitemap.php:160
+msgid "View Sitemap"
+msgstr ""
+
+#: companion_sitemap.php:191 companion_sitemap.php:249
+#: companion_sitemap.php:485 csg_robots.php:8
+msgid "Edit robots.txt"
+msgstr ""
+
+#: companion_sitemap.php:214 companion_sitemap.php:250
+#: companion_sitemap.php:476 csg_dashboard.php:8
+msgid "Generate Sitemap"
+msgstr ""
+
+#: companion_sitemap.php:218
+msgid "Update Sitemap"
+msgstr ""
+
+#: companion_sitemap.php:234
+msgid "Your sitemap is empty, generate one now"
+msgstr ""
+
+#: companion_sitemap.php:238
+msgid "Update your sitemap"
+msgstr ""
+
+#: companion_sitemap.php:263
+msgid "About"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Companion Sitemap Generator 1.9.1)  #-#-#-#-#
+#. Description of the plugin/theme
+#: companion_sitemap.php:264
+msgid ""
+"Boost your websites SEO, Companion Sitemap Generator allows you to easily "
+"create a sitemap.xml file"
+msgstr ""
+
+#: companion_sitemap.php:265
+msgid ""
+"Allow search engines like Google to scan your website quicker and get a "
+"better page ranking"
+msgstr ""
+
+#: companion_sitemap.php:269
+msgid "Post type info"
+msgstr ""
+
+#: companion_sitemap.php:270
+msgid ""
+"Wordpress has a few default post types, it's recommended to not remove "
+"those. Also, when using Woocommerce keep in mind that Woocommerce has it's "
+"own post types."
+msgstr ""
+
+#: companion_sitemap.php:275
+msgid "Support"
+msgstr ""
+
+#: companion_sitemap.php:276
+msgid "Need help? Feel free to contact me at info[AT]qreative-web.com."
+msgstr ""
+
+#: csg_dashboard.php:20
+msgid "Add Post Types"
+msgstr ""
+
+#: csg_dashboard.php:22
+msgid "Add post types to the sitemap"
+msgstr ""
+
+#: csg_dashboard.php:32
+msgid "Separate types with enters"
+msgstr ""
+
+#: csg_dashboard.php:33
+msgid "Save Post Types"
+msgstr ""
+
+#: csg_dashboard.php:34
+msgid "Fetch Post Types"
+msgstr ""
+
+#: csg_dashboard.php:43 csg_dashboard.php:51
+msgid "Exclude Pages"
+msgstr ""
+
+#: csg_dashboard.php:50
+msgid "Enter full url to page, separate using enters"
+msgstr ""
+
+#: csg_dashboard.php:60
+msgid "Thank you"
+msgstr ""
+
+#: csg_dashboard.php:62
+msgid "Thank you for installing and using this plugin"
+msgstr ""
+
+#: csg_dashboard.php:63
+msgid "Check out our other plugins"
+msgstr ""
+
+#: csg_dashboard.php:64
+msgid "Contact us"
+msgstr ""
+
+#: csg_dashboard.php:65
+msgid "Follow me on Twitter :)"
+msgstr ""
+
+#: csg_robots.php:16
+msgid "Edit robots.txt, only do this when you know what you're doing!"
+msgstr ""
+
+#: csg_robots.php:20
+msgid "Save robots.txt"
+msgstr ""
+
+#: csg_robots.php:30
+msgid "Why edit robots.txt"
+msgstr ""
+
+#: csg_robots.php:32
+msgid ""
+"While a sitemap allows search engines to scan pages faster, a robots.txt "
+"file disallows search engines from scanning certain pages."
+msgstr ""
+
+#: csg_robots.php:33
+msgid ""
+"Please note that when you add a page to the robots.txt file, you should also "
+"add it to the sitemaps \"Exlude Pages\" section (in a future update this "
+"will be done automatically)."
+msgstr ""
+
+#: csg_robots.php:38
+msgid "Robots Example"
+msgstr ""
+
+#: csg_robots.php:40
+msgid "Here's an example of what a robots file could look like"
+msgstr ""
+
+#: csg_robots.php:48
+msgid "Read more about robots"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Companion Sitemap Generator"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Companion Sitemap Generator 1.9.1)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Companion Sitemap Generator 1.9.1)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://qreative-web.com"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Qreative Web"
+msgstr ""
