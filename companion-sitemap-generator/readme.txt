@@ -1,9 +1,9 @@
 === Companion Sitemap Generator - HTML & XML ===
 Contributors: papin, boudewijnkok
-Donate link: https://www.paypal.me/dakel/
+Donate link: https://www.paypal.me/wijzijnqreative/
 Tags: sitemap, xml, robots, seo, multilingual
 Requires at least: 5.3.0
-Tested up to: 6.5
+Tested up to: 6.8
 Stable tag: 4.5.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,10 @@ This plugin has support for multisite. Each site will get its own sitemap.
 5. HTML Sitemap
 
 == Changelog ==
+
+= October 2025 =
+* Tested up to: 6.8
+* Sorry for the slow updates, we've got a major update coming up :)
 
 = 4.5.9.3 (June 12, 2024) =
 * Fixed Additional pages being blank
