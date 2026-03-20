@@ -1,267 +1,247 @@
-/* Stuffs */
-.subsubsub li:first-letter {
-    text-transform: uppercase;
+html {
+	scroll-behavior: smooth;
 }
-.subsubsub li a {
-	cursor: pointer;
-}
-.wp-list-table {
-	display: none;
-}
-.wp-list-table.table-post, .wp-list-table.table-category {
-	display: table;
-}
-.csg-table ol {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.csg-table ol li {
-	display: inline-block;
-}
-.csg-table ol li:after {
-	content: "|";
-	padding: 0 5px;
-}
-.csg-table ol li:last-child:after {
-	content: "";
-}
+body.wp-core-ui.sitemap-generator {
 
-/* Dashboard */
-.csg-column-wide {
-	box-sizing: border-box;
-	display: inline-block;
-	vertical-align: top;
-	width: calc(100% - 450px);
-	padding-right: 25px;
-}
-.csg-column-small {
-	display: inline-block;
-	vertical-align: top;
-	width: 450px;
-}
-.csg-dashboard-box {
-	background-position: right bottom;
-}
-.csg-column-wide .csg-dashboard-box {
-	padding-right: 125px;
-}
-.csg-dashboard-box a {
-	margin-left: 0px;
-	margin-top: 10px;
-}
-.csg-dashboard-box .welcome-column {
-	padding-right: 25px;
-}
-.support-sidebar-list {
-	margin-bottom: 25px;
-}
-.csg-dashboard-box p.submit {
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
+    --csg-theme-color: var( --wp-admin-theme-color, #007CBA );
+	--csg-border-color: #DCDCDE;
 
-/* Welcome screen */
-.csg_content .welcome-panel::before {
-	display: none;
-}
-.welcome-to-csg {
-    background-color: #FFF;
-    border: 1px solid #CCD0D4;
-    margin: 25px 0;
-    padding: 30px;
-    background-size: 140px;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    box-shadow: 0 1px 1px rgba(0,0,0,.04);
-}
-.welcome-to-csg.welcome-bg {
-    background-image: url('img/welcome.svg');
-}
-.welcome-to-csg.support-bg {
-    background-image: url('img/support.svg');
-}
-.welcome-to-csg.love-bg {
-    background-image: url('img/love.svg');
-}
-.welcome-to-csg.gutenberg-bg {
-    background-image: url('img/gutenberg.svg');
-}
-.welcome-to-csg.help-bg {
-    background-image: url('img/help.svg');
-}
-.welcome-to-csg.settings-bg {
-    background-image: url('img/settings.svg');
-}
-.welcome-to-csg.robots-bg {
-    background-image: url('img/robot.svg');
-}
-.welcome-to-csg.submit-bg {
-    background-image: url('img/submit.svg');
-}
-.welcome-to-csg h2 {
-	margin: 0;
-	margin-bottom: 25px;
-    font-size: 21px;
-    font-weight: 400;
-    line-height: 1.2;
-}
-.welcome-to-csg h2.title {
-	margin-bottom: 10px;
-}
-.welcome-to-csg h3 {
-    font-size: 16px;
-    margin-top: 0;
-}
-.welcome-to-csg a {
-	text-decoration: none;
-}
-.welcome-to-csg .welcome-column {
-	display: inline-block;
-	vertical-align: top;
-	box-sizing: border-box;
-}
-.welcome-to-csg.csg-show-love .welcome-column {
-	vertical-align: middle;
-}
-.welcome-to-csg .welcome-column.welcome-column-first {
-	display: block;
-	width: 100%;
-}
-.welcome-to-csg .welcome-column.welcome-column-half {
-	width: 50%;
-}
-.welcome-to-csg .welcome-column.welcome-column-third {
-	width: 33%;
-}
-.welcome-to-csg .welcome-column.welcome-column-quarter {
-	width: 25%;
-}
-.welcome-to-csg a.minimal-button {
-	display: inline-block;
-	padding: 5px;
-}
-
-/* Overwrite core UI */
-.csg_content input[type=checkbox]:checked::before {
-	content: "";
-	background: url( 'img/check.svg' );
-	background-size: contain;
-	background-position: center center;
-}
-.csg_content a {
-	color: #9178B7;
-}
-.csg_content a.nav-tab {
-	color: #23282D;
-}
-.csg_content .button-primary {
-	background-color: #9178B7!important;
-	border-color: #9178B7!important;
-}
-.csg_content .button-alt {
-	color: #9178B7!important;
-	border-color: #9178B7!important;
-}
-.csg_content .button-hero {
-	font-weight: 500;
-	padding: 15px 30px!important;
-}
-#message.csg {
-	background: #FFF;
-    border: 1px solid #CCD0D4;
-    border-left-width: 4px;
-    border-left-color: #9178B7;
-    box-shadow: 0 1px 1px rgba(0,0,0,.04);
-    margin: 25px 0px 5px 0;
-	padding: 15px;
-}
-#message.csg a, #message.csg strong {
-	color: #9178B7;
-}
-
-/* Tooltip */
-.csg_tooltip {
-	position: relative;
-}
-.csg_tooltip .csg_tooltip_text {
-    visibility: hidden;
-    background-color: rgba(0,0,0,0.7);	
-    color: #FFF;
-    text-align: left;
-    font-size: 14px;
-    padding: 15px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    width: 240px;
-    bottom: 100%;
-    left: 50%; 
-    margin-left: -60px;
-    margin-bottom: 10px;
-    opacity: 0;
-    transition: .3s;
-    font-weight: normal;
-}
-.csg_tooltip:hover .csg_tooltip_text {
-    visibility: visible;
-    opacity: 1;
-}
-.csg_tooltip .csg_tooltip_text::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -75px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0,0,0,0.7) transparent transparent transparent;
-}
-
-/* Responsive */
-@media screen and (max-width: 1400px) {
-
-	.csg-column-wide {
-		width: calc(100% - 350px);
+	& mark {
+		background-color: transparent;
+		color: #3c434A;
+		font-weight: normal;
+		opacity: 0.6;
 	}
-	.csg-column-small {
-		width: 350px;
+	.sitemap-generator-header {
+		background: #FFF;
+    	color: #070707;
+		border-bottom: 1px solid var(--csg-border-color);
+		padding-top: 0.5em;
+		margin-bottom: 1.14em;
+    }
+	.sitemap-generator-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+        font-size: 1.2em;
+		color: inherit;
+		font-weight: 600;
+		margin-block: 1.5em 0;
 	}
-	.welcome-to-csg .welcome-column.welcome-column-quarter {
-		width: 50%;
-		padding-bottom: 35px;
+	.nav-tab-wrapper {
+		display: flex;
+		gap: 1.5em;
+		border-bottom: 0;
 	}
-	.csg-column-small .welcome-to-csg {
-		background-image: none;
+	.nav-tab-wrapper a {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		font-weight: 500;
+		font-size: 1em;
+		padding-block: 1em;
+		padding-inline: 0;
+		&:hover {
+			color: var(--csg-theme-color);
+		}
+		&[aria-current="page"] {
+			border-bottom: 2px solid var(--csg-theme-color);
+		}
 	}
-
-}
-@media screen and (max-width: 1150px) {
-
-	.csg-column-wide, .csg-column-small {
-		width: 100%;
-		padding: 0;
+    .sitemap-generator-wrapper {
+        max-width: 800px;
+        margin-inline: auto;
+        padding-inline: 1.14em;
+    }
+	.noticable-notice {
+		background-color: #FCF9E8;
+		display: flex;
+		align-items: center;
+		& p:has( .button ) {
+			flex-grow: 1;
+			text-align: right;
+		}
 	}
-
-}
-@media screen and (max-width: 1000px) {
-
-	/* Dashboard */
-	.welcome-to-csg {
-		background-position: right bottom;
+	.subsubsub {
+		float: none;
 	}
-	.welcome-to-csg.love-bg {
-		background-image: none;
+	.card {
+		max-width: unset;
+		border-radius: 4px;
+		min-width: unset;
 	}
-	.welcome-to-csg .welcome-column {
-		min-width: 100%;
+	.welcome-card {
+		border: 1px solid var(--csg-theme-color);
+		box-shadow: 0px 1px 12px rgb( from var(--csg-theme-color) R G B / 0.4 );
 	}
-	.welcome-to-csg .welcome-column.welcome-column-first {
-		padding-left: 0px;
+	.form-fields {
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( min( 250px, 100%), 1fr ) );
+		gap: 1em;
+		padding-block: 1em;
+		.form-fields-label {
+			font-weight: bold;
+		}
+		.form-fields-description {
+			font-weight: normal;
+    		line-height: 1.3;
+			color: #646970;
+			margin: 0;
+		}
+		&:has( .toggle-form-fields:not(:checked) ) {
+			.form-fields-description {
+				opacity: 0.6;
+			}
+			.form-fields-option {
+				display: none;
+				content-visibility: hidden;
+			}
+		}
 	}
-	.csg-column-wide .csg-dashboard-box {
-		padding-right: 30px;
-		padding-bottom: 125px
+	.has-clear-button {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		.text {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.button {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		&:has(:placeholder-shown) .clear-button {
+			pointer-events:none;
+			filter: grayscale(1);
+			opacity: .6;
+		}
 	}
-
+	& input[type="text"],
+	& select,
+	& textarea {
+		width: min( 100%, 20rem );
+		max-width: unset;
+	}
+	.button.button-blank {
+		background-color: transparent;
+		border-color: transparent;
+		color: #3c434A;
+		font-weight: 500;
+	}
+	p.description svg {
+		color: var(--csg-theme-color);
+		width: 1lh;
+		height: 1lh;
+		align-self: center;
+	}
+	.wrapped-description {
+		max-width: 70ch;
+	}
+	.accordion-group {
+		border: 1px solid var(--csg-border-color);
+		border-bottom: 0;
+	}
+	.sitemap-accordion {
+		border-bottom: 1px solid var(--csg-border-color);
+		& summary {
+			background: #fff;
+			color: #2c3338;
+			cursor: pointer;
+			counter-increment: list-item 0;
+    		list-style: inside disclosure-closed;
+			font-weight: 600;
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1em 1.5em;
+			position: relative;
+		}
+		& summary .icon {
+			border: solid #50575e;
+			border-width: 0 2px 2px 0;
+			height: .5rem;
+			pointer-events: none;
+			right: 1.5em;
+			rotate: 45deg;
+			width: .5rem;
+			transition: 0.3s rotate ease-in-out;
+		}
+		&[open] summary .icon {
+			rotate: 225deg;
+		}
+		& summary .dashicons {
+			color: #c3c4c7;
+			width: 18px;
+			height: 18px;
+			font-size: 18px;
+			vertical-align: middle;
+			margin-right: -0.5rem;
+		}
+		& summary .title {
+			flex-grow: 1;
+		}
+		& summary .badge {
+			font-weight: 600;
+			border: 1px solid currentColor;
+			color: var(--csg-border-color);
+			background-color: rgb( from currentColor R G B / 0.05 );
+			padding: 0.2rem 0.7rem;
+			border-radius: 4px;
+			font-size: .7rem;
+			&.red {
+				color: #D53637;
+			}
+			&.orange {
+				color: #dba617;
+			}
+			&.blue {
+				color: var(--csg-theme-color);
+			}
+			&.green {
+				color: #00a32a;
+			}
+		}
+		.panel {
+			padding: 1em 1.5em;
+			background-color: #FFF;
+		}
+		.accordion-panel-header {
+			background: #FFF;
+			position: sticky;
+			top: 32px;
+			z-index: 10;
+		}
+		.accordion-panel-footer {
+			background: #FFF;
+			border-top: 1px solid #c3c4c7;
+			position: sticky;
+			bottom: 0;
+			padding: 1em 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 10;
+		}
+	}
+	.notice {
+		margin: 8px 0;
+	}
+	& table td {
+		box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+		padding: 16px;
+	}
+	& tr:has( select:invalid ) td {
+		opacity: 0.3;
+	}
+	select:invalid {
+		background-color: red!important;
+	}
+	select option[value=""], select option:not([value]) {
+		background-color: blue!important;
+	}
+	.inactive {
+		filter: grayscale(1);
+		opacity: 0.6;
+		text-decoration: line-through;
+	}
 }
