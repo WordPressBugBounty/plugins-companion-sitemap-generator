@@ -3,7 +3,7 @@
  * Plugin Name: Companion Sitemap Generator
  * Plugin URI: https://wijzijnqreative.nl/
  * Description: Create & Edit an XML sitemap, HTML sitemap and robots.txt file
- * Version: 4.6.0
+ * Version: 4.6.0.1
  *
  * Author: Papin Schipper
  * Author URI: https://wijzijnqreative.nl/
@@ -110,7 +110,7 @@ function csg_startup_data() {
 
 	// DB table creation queries
 	$sql = sprintf(
-		"CREATE TABLE %i (
+		"CREATE TABLE %s (
 			id INT(9) NOT NULL AUTO_INCREMENT,
 			name VARCHAR(255) NOT NULL,
 			onoroff TEXT NOT NULL,
