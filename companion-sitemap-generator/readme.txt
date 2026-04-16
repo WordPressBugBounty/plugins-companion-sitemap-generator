@@ -5,7 +5,7 @@ Tags: sitemap, xml, robots, seo, multilingual
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 4.6.0
+Stable tag: 4.6.1
 
 Donate link: https://www.paypal.me/wijzijnqreative/
 
@@ -73,8 +73,14 @@ No. Companion Sitemap Generator does not track, send, or store any personal data
 
 == Changelog ==
 
+= 4.6.1 =
+* 📅 Release date: April 16, 2026
+
+* ✨ Improved: Better responsiveness for the HTML sitemap
+* 🐞 Fixed: A couple of errors that broke the HTML sitemap
+
 = 4.6.0 =
-* 📅 Release date: March 20, 2026 *
+* 📅 Release date: March 20, 2026
 
 * ✨ Improved: Redesigned dashboard pages to match new WordPress styling
 * ✨ Improved: Reworked the content filter making it easier and clearer to use

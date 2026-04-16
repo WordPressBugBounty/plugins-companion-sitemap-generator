@@ -7,22 +7,25 @@ function htmlsitemap( string $orderby, string $sort, int $limit ) {
 	wp_enqueue_style( 'sitemap-block' );
 
 	// Classes array (for future support of custom classes (maybe))
-	$classes = [
+	$_classes = [
 		'companion-sitemap-block',
 	];
 
-	$block_classes = implode( " ", $classes );
-
 	// Content
-	$csg_sitemap_content 	= html_posttypes( $sort, $orderby, $limit );
-	$csg_sitemap_content 	.= html_taxonomies( $sort, $orderby );
-	$csg_sitemap_content 	.= html_additionalpages( $sort, $orderby );
+	$_content 	= [];
+	$_content[] = html_posttypes( $sort, $orderby, $limit );
+	$_content[] = html_taxonomies( $sort, $orderby, $limit );
+	$_content[] = html_additionalpages( $sort, $orderby, $limit );
+
+	// To string
+	$block_classes = implode( " ", $_classes );
+	$block_content = implode( " ", $_content );
 
 	// Return output
 	return sprintf(
 		'<div class="%1$s">%2$s</div>',
 		esc_attr( $block_classes ),
-		$csg_sitemap_content
+		$block_content
 	);
 }
 
