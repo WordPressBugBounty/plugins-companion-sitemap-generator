@@ -4,17 +4,23 @@ html {
 body.wp-core-ui.sitemap-generator {
 
     --csg-theme-color: var( --wp-admin-theme-color, #007CBA );
-	--csg-border-color: #DCDCDE;
+    --csg-border-color: #DCDCDE;
+    --csg-background-color: #FFF;
+    --csg-text-color: #3c434a;
+    --csg-red: #D53637;
+    --csg-orange: #eaa600;
+    --csg-blue: var(--csg-theme-color);
+    --csg-green: #008a20;}
 
 	& mark {
 		background-color: transparent;
-		color: #3c434A;
+		color: currentColor;
 		font-weight: normal;
 		opacity: 0.6;
 	}
 	.sitemap-generator-header {
-		background: #FFF;
-    	color: #070707;
+		background: var(--csg-background-color);
+    	color: currentColor;
 		border-bottom: 1px solid var(--csg-border-color);
 		padding-top: 0.5em;
 		margin-bottom: 1.14em;
@@ -143,8 +149,8 @@ body.wp-core-ui.sitemap-generator {
 	.sitemap-accordion {
 		border-bottom: 1px solid var(--csg-border-color);
 		& summary {
-			background: #fff;
-			color: #2c3338;
+			background: var(--csg-background-color);
+			color: var(--csg-text-color);
 			cursor: pointer;
 			counter-increment: list-item 0;
     		list-style: inside disclosure-closed;
@@ -156,8 +162,15 @@ body.wp-core-ui.sitemap-generator {
 			padding: 1em 1.5em;
 			position: relative;
 		}
+		&.type-is-excluded summary {
+			background: hsl( from var(--csg-red) h s 98% );
+		}
+		&.type-is-empty summary {
+			background: hsl( from var(--csg-border-color) h s 98% );
+			color: rgb( from currentColor r g b / 0.5 );
+		}
 		& summary .icon {
-			border: solid #50575e;
+			border: solid currentColor;
 			border-width: 0 2px 2px 0;
 			height: .5rem;
 			pointer-events: none;
@@ -170,7 +183,7 @@ body.wp-core-ui.sitemap-generator {
 			rotate: 225deg;
 		}
 		& summary .dashicons {
-			color: #c3c4c7;
+			color: currentColor;
 			width: 18px;
 			height: 18px;
 			font-size: 18px;
@@ -181,25 +194,34 @@ body.wp-core-ui.sitemap-generator {
 			flex-grow: 1;
 		}
 		& summary .badge {
+			--_base: var(--csg-border-color);
 			font-weight: 600;
-			border: 1px solid currentColor;
-			color: var(--csg-border-color);
-			background-color: rgb( from currentColor R G B / 0.05 );
-			padding: 0.2rem 0.7rem;
+			padding: 0.2rem 0.4rem;
 			border-radius: 4px;
-			font-size: .7rem;
+			background-color: hsl( from var(--_base) h s 95% );
+			color: hsl( from var(--_base) h s 25% );
+			border: 1px solid var(--_base);
+
 			&.red {
-				color: #D53637;
+				--_base: var(--csg-red);
 			}
 			&.orange {
-				color: #dba617;
+				--_base: var(--csg-orange);
 			}
 			&.blue {
-				color: var(--csg-theme-color);
+				--_base: var(--csg-blue);
 			}
 			&.green {
-				color: #00a32a;
+				--_base: var(--csg-green);
 			}
+			&.blank {
+				--_base: var(--csg-text-color);
+				border: 0;
+				background: transparent;
+			}
+		}
+		& table.inactive {
+			display: none;
 		}
 		.panel {
 			padding: 1em 1.5em;

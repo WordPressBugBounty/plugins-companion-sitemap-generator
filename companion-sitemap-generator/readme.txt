@@ -73,6 +73,12 @@ No. Companion Sitemap Generator does not track, send, or store any personal data
 
 == Changelog ==
 
+= 4.6.2 =
+* 📅 Release date: April 23, 2026
+
+* ✨ Improved: Better contrast on certain elements
+* 🐞 Fixed: The hidden object counters on the content filters
+
 = 4.6.1 =
 * 📅 Release date: April 16, 2026
 

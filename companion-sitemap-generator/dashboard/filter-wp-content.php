@@ -137,6 +137,8 @@ echo "<form method='POST' action=''>";
 
 				// Starting vars
 				$object_id 			= sanitize_key( $object );
+				$hidden_post_count 	= 0;
+				$get_hidden_posts  	= [];
 
 				// Fetch the correct info
 				if( $group_id === "post_types" ) {
@@ -152,6 +154,12 @@ echo "<form method='POST' action=''>";
 					if( csg_is_multilingual() ) $arguments['lang'] = csg_default_language(); // If is multilingual add language filter
 					$get_objects 		= get_posts( $arguments );
 
+					// Get the hidden posts
+					if( ! empty( $object_compare ) ) {
+						$arguments['include'] = $object_compare;
+						$get_hidden_objects = get_posts( $arguments );
+					}
+
 				} elseif( $group_id === "taxonomies" ) {
 
 					$get_object 		= get_taxonomy( $object );
@@ -164,54 +172,72 @@ echo "<form method='POST' action=''>";
 					$arguments 			= array( 'taxonomy' => $object_id );
 					$get_objects		= get_terms( $arguments );
 
+					// Get the hidden posts
+					if( ! empty( $object_compare ) ) {
+						$arguments['include'] = $object_compare;
+						$get_hidden_objects = get_terms( $arguments );
+					}
+
 				}
 
-				// Only get the hidden posts (when the array is empty get_posts returns all posts.. so that doesn't work then)
-				if( ! empty( $object_compare ) ) {
-					$arguments['include'] 	= $object_compare;
-					$get_hidden_posts 		= get_posts( $arguments );
-					$hidden_post_count 		= count( $get_hidden_posts );
-				} else {
-					$hidden_post_count 		= 0;
-				}
-
-				$object_label 	= esc_html( $get_object->label );
-				$object_slug 	= sanitize_key( $get_object->name );
-
-				// $single_name 	= isset( $get_object->labels->singlular_name ) ? strtolower( esc_html( $get_object->labels->singlular_name ) ) : strtolower( esc_html( $get_object->labels->name_admin_bar ) );
-				$single_name 	= esc_html( $get_object->name );
-				$all_items 		= esc_html( $get_object->labels->all_items );
-				$not_found 		= esc_html( $get_object->labels->not_found );
-				$items_list 	= esc_html( $get_object->labels->items_list );
+				// Labels and such
+				$object_label 		= esc_html( $get_object->label );
+				$object_slug 		= sanitize_key( $get_object->name );
+				$single_name 		= esc_html( $get_object->name );
+				$all_items 			= esc_html( $get_object->labels->all_items );
+				$not_found 			= esc_html( $get_object->labels->not_found );
+				$items_list 		= esc_html( $get_object->labels->items_list );
 
 				// If the entire post type is set to be excluded from the sitemap
-				$global_exclude = in_array( $object, csg_get_excluded( "post_types" ) ) ? true : false;
+				$global_exclude 	= (bool) in_array( $object, csg_get_excluded( "post_types" ) );
 
 				// For the badge
-				$total_post_count 	= count( $get_objects );
-				$badge_string	 	= sprintf( esc_html__( '%s hidden', 'companion-sitemap-generator' ), (int) $hidden_post_count );
-				$badge_color 		= "green";
-
-				// No items found
-				if( $total_post_count === 0 ) {
-					$badge_color 	= "blue";
-					$badge_string 	= $not_found;
-				}
+				$total_post_count 	= (int) count( $get_objects );
+				$hidden_post_count 	= (int) count( $get_hidden_objects );
+				$badge_string	 	= sprintf( esc_html__( '%s hidden', 'companion-sitemap-generator' ), $hidden_post_count );
+				$badge_color 		= $hidden_post_count > 0 ? "orange" : "blank";
+				$block_class 		= "";
 
 				// All items excluded
-				else if( $global_exclude OR $hidden_post_count === $total_post_count ) {
-					$badge_color 	= "red";
+				if( $hidden_post_count === $total_post_count ) {
 					$badge_string 	= sprintf( esc_html__( '%s hidden', 'companion-sitemap-generator' ), $all_items );
 				}
 
+				// Global excluded
+				if( $global_exclude ) {
+					$badge_color 	= "red";
+					$badge_string 	= esc_html__( 'Disabled', 'companion-sitemap-generator' );
+					$block_class 	= "type-is-excluded";
+				}
+
+				// No items found
+				if( $total_post_count === 0 ) {
+					$badge_color 	= "blank";
+					$badge_string 	= str_replace( ".", "", $not_found );
+					$block_class 	= "type-is-empty";
+				}
+
 				// Translations and such
-				$description 	= sprintf( esc_html__( 'You can hide %s from the sitemap or select individual %s from the table below', 'companion-sitemap-generator' ), strtolower( $all_items ), strtolower( $object_label ) );
-				$show_all 		= sprintf( esc_html__( 'Show %s in sitemap', 'companion-sitemap-generator' ), strtolower( $all_items ) );
-				$hide_all 		= sprintf( esc_html__( 'Hide %s from sitemap', 'companion-sitemap-generator' ), strtolower( $all_items ) );
-				$hidden_counter = sprintf( esc_html__( '%s hidden', 'companion-sitemap-generator' ), "<strong>{$hidden_post_count}</strong> / {$total_post_count}" );
+				$description = sprintf(
+					esc_html__( 'You can hide %s from the sitemap or select individual %s from the table below', 'companion-sitemap-generator' ),
+					strtolower( $all_items ),
+					strtolower( $object_label )
+				);
+				$show_all = sprintf(
+					esc_html__( 'Show %s in sitemap', 'companion-sitemap-generator' ),
+					strtolower( $all_items )
+				);
+				$hide_all = sprintf(
+					esc_html__( 'Hide %s from sitemap', 'companion-sitemap-generator' ),
+					strtolower( $all_items )
+				);
+				$hidden_counter = sprintf(
+					esc_html__( '%s hidden', 'companion-sitemap-generator' ),
+					"<strong>{$hidden_post_count}</strong> / {$total_post_count}"
+				);
 
 				// Output the accordion
-				echo "<details id='{$group_id}-accordion' class='sitemap-accordion' name='{$group_id}-exclusion-accordion' data-group='{$group_id}' data-object='{$object_id}'>
+				echo "<details id='{$group_id}-accordion' class='sitemap-accordion {$block_class}' name='{$group_id}-exclusion-accordion' data-group='{$group_id}' data-object='{$object_id}'>
 
 					<summary>
 						<span class='dashicons {$object_icon}' aria-hidden='true'></span>

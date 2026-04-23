@@ -3,7 +3,7 @@
  * Plugin Name: Companion Sitemap Generator
  * Plugin URI: https://wijzijnqreative.nl/
  * Description: Create & Edit an XML sitemap, HTML sitemap and robots.txt file
- * Version: 4.6.1
+ * Version: 4.6.2
  *
  * Author: Papin Schipper
  * Author URI: https://wijzijnqreative.nl/
